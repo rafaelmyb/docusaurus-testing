@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import { useWindowSize } from "@docusaurus/theme-common";
 import { useDoc } from "@docusaurus/theme-common/internal";
@@ -14,6 +14,7 @@ import styles from "./styles.module.css";
 import { PRIVATE_ROUTES } from "@site/src/constants/routes";
 import { useLocation } from "@docusaurus/router";
 import { useLocalStorage } from "@site/src/hooks/useLocalStorage";
+import { Redirect } from "@docusaurus/router";
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
  */
@@ -59,7 +60,7 @@ export default function DocItemLayout({ children }) {
         </div>
       )}
 
-      {PRIVATE_ROUTES.includes(router.pathname) && state === true ? (
+      {PRIVATE_ROUTES.includes(router.pathname) && state === true && (
         <div className="row">
           <div className={clsx("col", !docTOC.hidden && styles.docItemCol)}>
             <DocVersionBanner />
@@ -76,8 +77,10 @@ export default function DocItemLayout({ children }) {
           </div>
           {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
         </div>
-      ) : (
-        <div>Not logged In</div>
+      )}
+
+      {PRIVATE_ROUTES.includes(router.pathname) && state === false && (
+        <Redirect to="/" />
       )}
     </>
   );
