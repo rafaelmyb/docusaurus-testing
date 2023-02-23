@@ -6,9 +6,9 @@ import { useLocation } from "@docusaurus/router";
 import { useLocalStorage } from "@site/src/hooks/useLocalStorage";
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
+
 function DocSidebarItems({ items, ...props }) {
   const [state] = useLocalStorage("isAuth");
-  const router = useLocation();
 
   function handleHideSidebarItem(item, index) {
     return PRIVATE_ROUTES.includes(item.href) && state === false ? null : (

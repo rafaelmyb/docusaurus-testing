@@ -38,10 +38,11 @@ export default function DocItemLayout({ children }) {
   const docTOC = useDocTOC();
   const [state] = useLocalStorage("isAuth");
   const router = useLocation();
+  const isPrivateRoute = PRIVATE_ROUTES.includes(router.pathname);
 
-  return (
-    <>
-      {!PRIVATE_ROUTES.includes(router.pathname) && (
+  function handlePrivateRoutes() {
+    if (!isPrivateRoute || (isPrivateRoute && state)) {
+      return (
         <div className="row">
           <div className={clsx("col", !docTOC.hidden && styles.docItemCol)}>
             <DocVersionBanner />
@@ -58,30 +59,11 @@ export default function DocItemLayout({ children }) {
           </div>
           {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
         </div>
-      )}
+      );
+    }
 
-      {PRIVATE_ROUTES.includes(router.pathname) && state === true && (
-        <div className="row">
-          <div className={clsx("col", !docTOC.hidden && styles.docItemCol)}>
-            <DocVersionBanner />
-            <div className={styles.docItemContainer}>
-              <article>
-                <DocBreadcrumbs />
-                <DocVersionBadge />
-                {docTOC.mobile}
-                <DocItemContent>{children}</DocItemContent>
-                <DocItemFooter />
-              </article>
-              <DocItemPaginator />
-            </div>
-          </div>
-          {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
-        </div>
-      )}
+    return <Redirect to="/" />;
+  }
 
-      {PRIVATE_ROUTES.includes(router.pathname) && state === false && (
-        <Redirect to="/" />
-      )}
-    </>
-  );
+  return handlePrivateRoutes();
 }
