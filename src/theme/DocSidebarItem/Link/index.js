@@ -10,6 +10,7 @@ import {
   SUB_ITEMS_SIDEBAR_PATHS,
   TRANSACTIONS_PATHS,
 } from "@site/src/constants/commonContants";
+import { handleMethods } from "@site/src/utils/commonFunctions";
 
 export default function DocSidebarItemLink({
   item,
@@ -22,31 +23,6 @@ export default function DocSidebarItemLink({
   const { href, label, className, autoAddBaseUrl } = item;
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
-
-  function changePadding(item) {
-    return TRANSACTIONS_PATHS.map((i) =>
-      item.href === i.path ? "#fff" : "#000"
-    );
-  }
-
-  console.log(index);
-
-  function handleMethods(item) {
-    return TRANSACTIONS_PATHS.map((i) =>
-      item.href === i.path ? (
-        <div
-          key={i.path}
-          style={{
-            background: i.background,
-            textShadow: i.textShadow,
-          }}
-          className={styles.requestItem}
-        >
-          {i.method}
-        </div>
-      ) : null
-    );
-  }
 
   return (
     <li
@@ -107,7 +83,7 @@ export default function DocSidebarItemLink({
         {...props}
       >
         {label}
-        {handleMethods(item, index)}
+        {handleMethods(item, styles)}
         {!isInternalLink && <IconExternalLink />}
       </Link>
     </li>

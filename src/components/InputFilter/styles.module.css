@@ -1,0 +1,39 @@
+.inputContainer {
+  max-width: 371px;
+  width: 100%;
+  position: fixed;
+}
+
+.input {
+  outline: none;
+  border: none;
+  font-size: 0.875rem;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 3px 6px -5px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+  border-radius: 4px;
+  transition: border-color 0.1s;
+  padding-left: 31px;
+}
+
+.input:hover {
+  border-color: #ccc;
+}
+
+.input:focus {
+  border-color: #118cfd;
+  box-shadow: 0 0 0 3px rgba(17, 140, 253, 0.25);
+  outline: none;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  z-index: 999;
+}

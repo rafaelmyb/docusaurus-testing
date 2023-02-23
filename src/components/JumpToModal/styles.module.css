@@ -1,0 +1,81 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 0.625rem 0.625rem 0.625rem;
+}
+
+.contentContainer {
+  margin-top: 38px;
+}
+
+.contentContainer ol {
+  width: 100%;
+  margin: 0;
+  padding: 0.625rem 0 0;
+  list-style-type: none;
+}
+
+.contentContainer ol:nth-child(2) {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.contentContainer li {
+  display: flex;
+}
+
+.listTitle {
+  margin-left: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 5px;
+  margin-top: 0;
+  text-transform: uppercase;
+  color: #637288;
+}
+
+.contentContainer ol li a {
+  color: #384248;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 5px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  width: 100%;
+  word-break: break-word;
+  transition: border-color 0.1s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentContainer ol li a:hover {
+  border-color: #ccc;
+}
+
+.contentContainer ol li a:focus {
+  border-color: #118cfd;
+  box-shadow: 0 0 0 3px rgba(17, 140, 253, 0.25);
+}
+
+.requestItem {
+  font-size: 0.5rem;
+  font-weight: 600;
+  width: 40px;
+  height: 1rem;
+  line-height: 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7.5px;
+  margin: 3px 0 0 5px;
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
