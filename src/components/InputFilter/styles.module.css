@@ -1,7 +1,8 @@
 .inputContainer {
-  max-width: 371px;
   width: 100%;
-  position: fixed;
+  position: sticky;
+  top: 0;
+  left: 10px;
 }
 
 .input {

@@ -54,6 +54,7 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
             background: "rgba(0, 0, 0, 0.1)",
           },
           content: {
+            maxHeight: "774px",
             height: "100%",
           },
         }}

@@ -7,9 +7,6 @@
   padding: 0 0.625rem 0.625rem 0.625rem;
 }
 
-.contentContainer {
-  margin-top: 38px;
-}
 
 .contentContainer ol {
   width: 100%;
@@ -18,7 +15,7 @@
   list-style-type: none;
 }
 
-.contentContainer ol:nth-child(2) {
+.divider {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 10px;
 }
