@@ -56,6 +56,25 @@ const config = {
         },
       }),
     ],
+    [
+      "redocusaurus",
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            id: "create-transaction-yaml",
+            spec: "api/create-transaction.yaml",
+            // route: "/docs/transactions/create-transaction",
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          sidebar: {
+            width: "0px"
+          }
+        },
+      },
+    ],
   ],
 
   themeConfig:
@@ -69,6 +88,7 @@ const config = {
           alt: "My Site Logo",
           src: "img/logo.svg",
         },
+        hideOnScroll: true,
       },
       footer: {
         style: "dark",

@@ -46,7 +46,7 @@ export default function Layout(props) {
         </ErrorBoundary>
       </div>
 
-      {!noFooter && <Footer />}
+      {/* {!noFooter && <Footer />} */}
     </LayoutProvider>
   );
 }

@@ -51,6 +51,7 @@ export default function NavbarLayout({ children }) {
           borderBottom: 4,
           borderBottomColor: "#757575",
           borderStyle: "solid",
+          zIndex: 998,
         }}
       >
         {children}

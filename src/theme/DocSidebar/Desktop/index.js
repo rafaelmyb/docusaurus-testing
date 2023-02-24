@@ -6,6 +6,9 @@ import CollapseButton from "@theme/DocSidebar/Desktop/CollapseButton";
 import Content from "@theme/DocSidebar/Desktop/Content";
 import styles from "./styles.module.css";
 import ReactModal from "react-modal";
+import {
+  useHideableNavbar,
+} from "@docusaurus/theme-common/internal";
 import { JumpToModal } from "@site/src/components/JumpToModal";
 
 function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
@@ -15,6 +18,8 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
       sidebar: { hideable },
     },
   } = useThemeConfig();
+  const { isNavbarVisible } = useHideableNavbar(hideOnScroll);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   function handleCloseModal() {
@@ -32,11 +37,17 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
         hideOnScroll && styles.sidebarWithHideableNavbar,
         isHidden && styles.sidebarHidden
       )}
+      style={{
+        marginTop: isNavbarVisible ? 6 : 0
+      }}
     >
-      {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />}
+      {/* {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />} */}
       <button
         className={styles.buttonJumpTo}
         onClick={() => setIsOpenModal(true)}
+        style={{
+          marginTop: isNavbarVisible ? 70 : 15
+        }}
       >
         JUMP TO
         <span>CTRL-/</span>
